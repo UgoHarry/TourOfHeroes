@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroDetailsComponent } from '../hero-details/hero-details.component';
+import {Hero} from '../hero';
+import {HEROLIST} from '../heroList';
 
 
 @Component({
@@ -8,11 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HeroComponent implements OnInit {
-  hero:string = 'Cyclops';
+  // Create 'heroes' variable which is an array of superheroes importd from HEROLIST
+  heroes = HEROLIST;
+
+  // Declare a variable with a class of Hero
+  selectedHero : Hero;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSelect (hero) {
+    this.selectedHero = hero;
+    console.log(this.selectedHero.name);
+  }
 }

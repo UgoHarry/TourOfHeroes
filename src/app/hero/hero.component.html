@@ -1,6 +1,14 @@
-<h2>The dream list:</h2>
+<app-hero-details></app-hero-details>
+
 <label for="">Hero:
-<input type="text" [(ngModel)] = "hero" placeholder="Place hero here">
+<input type="text" placeholder="Place hero here">
 </label>
-<p>{{hero}}</p>
+<button>Add</button>
+
+<h2>The dream list:</h2>
+<ul class = "heroes">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected] = "hero === selectedHero">
+    <span class="badge">{{hero.id}}</span>{{hero.name}}
+  </li>
+</ul>
 
